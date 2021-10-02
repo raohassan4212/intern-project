@@ -45,11 +45,11 @@
         </label>
         <br />
 
-       
-
-        <div class="btn-log-div">
-          <button class="btn-log">Continue</button>
-        </div>
+        <router-link to="/verification">
+          <div class="btn-log-div">
+            <button class="btn-log">Continue</button>
+          </div>
+        </router-link>
       </div>
     </div>
   </div>
@@ -84,7 +84,6 @@ export default {
   justify-content: center;
   align-items: center;
   min-width: 400px;
-  
 }
 
 .log-box-div {
@@ -161,5 +160,4 @@ export default {
   color: #829ab1;
   font-size: 14px;
 }
-
 </style>
