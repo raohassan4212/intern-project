@@ -14,15 +14,16 @@ import Login from "@/pages/Login.vue";
 import SignUp from "@/pages/SignUp.vue";
 import Forget from "@/pages/Forget.vue";
 import ChangePassword from "@/pages/ChangePassword.vue";
-// import LoginA from "@/pages/loginA.vue";
+import VerificationPage from "@/pages/VerificationPage.vue";
+
 
 
 const routes = [
-  // { path: "/loginA", component: LoginA },
   { path: "/login", component: Login },
   { path: "/sign-up", component: SignUp },
   { path: "/forget", component: Forget },
   { path: "/change-password", component: ChangePassword },
+  { path: "/verification", component: VerificationPage },
   {
     path: "/",
     component: DashboardLayout,

@@ -25,8 +25,25 @@
         </label>
         <br />
         <label class="lable-inp">
-          Password
-          <input v-model="password" type="password" class="box-aligment" />
+          Password <br />
+          <input
+            :type="passwordFeildType"
+            v-model="password"
+            class="eye-flex"
+          />
+          <button
+            class="eye-flex-btn"
+            type="password"
+            v-on:click="switchVisibility"
+          >
+            <img
+              v-if="eyeChange"
+              src="../assets/img/eye.png"
+              alt=""
+              width="20px"
+            />
+            <img v-else src="../assets/img/eye-cross.png" alt="" width="20px" />
+          </button>
         </label>
         <br />
 
@@ -81,30 +98,38 @@ export default {
     return {
       email: "",
       password: "",
+      passwordFeildType: "password",
+      eyeChange: true,
       user: {},
       toShow: false,
     };
   },
-  data: function () {
-    return {
-      passwordValue: "",
-    };
-  },
+  // data: function () {
+  //   return {
+  //     passwordValue: "",
+  //   };
+  // },
   methods: {
-    /** on change password*/
-    onChangePassword(value, id) {
-      this.passwordValue = value;
+    switchVisibility() {
+      this.passwordFeildType =
+        this.passwordFeildType == "password" ? "text" : "password";
+      this.eyeChange = !this.eyeChange;
     },
+
+    /** on change password*/
+    // onChangePassword(value, id) {
+    //   this.passwordValue = value;
+    // },
 
     /** on blur password field*/
-    onBlur(event, placeholder, errorObj) {
-      event.target.placeholder = placeholder;
-    },
+    // onBlur(event, placeholder, errorObj) {
+    // //   event.target.placeholder = placeholder;
+    // },
 
     /** on focus password field*/
-    onFocus(event) {
-      event.target.placeholder = "";
-    },
+    // onFocus(event) {
+    //   event.target.placeholder = "";
+    // },
 
     async getUser() {
       await fetch("http://localhost:5000/user", {
@@ -261,6 +286,17 @@ export default {
 
 .incorrect {
   color: red;
-   margin-bottom: 5px;
+  margin-bottom: 5px;
+}
+
+.eye-flex {
+  display: inline-block;
+  width: 90%;
+  border-style: none;
+}
+
+.eye-flex-btn {
+  display: inline-block;
+  border-style: none;
 }
 </style>

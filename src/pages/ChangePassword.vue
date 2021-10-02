@@ -2,30 +2,78 @@
   <div class="login2-main-div">
     <div class="nav-type">
       <img src="../assets/logo/logo.png" alt="" width="180" />
-
     </div>
 
     <div class="for-flex">
       <div class="log-box-div">
         <p class="login-email">Change Password</p>
 
-        <p class="p-information">
-          Enter your new password.
-        </p>
+        <p class="p-information">Enter your new password.</p>
         <label class="lable-inp">
           Current Password
-          <input type="password" class="box-aligment" />
+          <input
+            :type="passwordFeildType"
+            v-model="currentPassword"
+            class="eye-flex"
+          />
+          <button
+            class="eye-flex-btn"
+            type="password"
+            v-on:click="switchVisibility"
+          >
+            <img
+              v-if="eyeChange"
+              src="../assets/img/eye.png"
+              alt=""
+              width="20px"
+            />
+            <img v-else src="../assets/img/eye-cross.png" alt="" width="20px" />
+          </button>
         </label>
         <br />
         <label class="lable-inp">
           New Password
-          <input type="password" class="box-aligment" />
+          <input
+            :type="passwordFeildTypeNew"
+            v-model="newPassword"
+            class="eye-flex"
+          />
+          <button
+            class="eye-flex-btn"
+            type="password"
+            v-on:click="switchVisibilityNew"
+          >
+            <img
+              v-if="eyeChangeNew"
+              src="../assets/img/eye.png"
+              alt=""
+              width="20px"
+            />
+            <img v-else src="../assets/img/eye-cross.png" alt="" width="20px" />
+          </button>
         </label>
         <br />
 
         <label class="lable-inp">
           Confirm Password
-          <input type="password" class="box-aligment" />
+          <input
+            :type="passwordFeildTypeConfirm"
+            v-model="confirmPassword"
+            class="eye-flex"
+          />
+          <button
+            class="eye-flex-btn"
+            type="password"
+            v-on:click="switchVisibilityConfirm"
+          >
+            <img
+              v-if="eyeChangeConfirm"
+              src="../assets/img/eye.png"
+              alt=""
+              width="20px"
+            />
+            <img v-else src="../assets/img/eye-cross.png" alt="" width="20px" />
+          </button>
         </label>
         <br />
 
@@ -38,11 +86,39 @@
 </template>
 
 <script>
-
 export default {
   name: "ChangePassword",
-  
+  data() {
+    return {
+      currentPassword: "",
+      newPassword: "",
+      confirmPassword: "",
+      passwordFeildType: "password",
+      passwordFeildTypeNew: "password",
+      passwordFeildTypeConfirm: "password",
+      eyeChange: true,
+      eyeChangeNew: true,
+      eyeChangeConfirm: true,
+    };
+  },
 
+  methods: {
+    switchVisibility() {
+      this.passwordFeildType =
+        this.passwordFeildType == "password" ? "text" : "password";
+      this.eyeChange = !this.eyeChange;
+    },
+    switchVisibilityNew() {
+      this.passwordFeildTypeNew =
+        this.passwordFeildTypeNew == "password" ? "text" : "password";
+      this.eyeChangeNew = !this.eyeChangeNew;
+    },
+    switchVisibilityConfirm() {
+      this.passwordFeildTypeConfirm =
+        this.passwordFeildTypeConfirm == "password" ? "text" : "password";
+      this.eyeChangeConfirm = !this.eyeChangeConfirm;
+    },
+  },
 };
 </script>
 
@@ -101,7 +177,6 @@ export default {
   margin-bottom: 20px;
 }
 
-
 .btn-log {
   width: 71%;
   border-style: none;
@@ -140,10 +215,19 @@ export default {
   font-size: 14px;
 }
 
-
 .he {
   margin: 0px !important;
-  padding: 0px !important; 
+  padding: 0px !important;
 }
 
+.eye-flex {
+  display: inline-block;
+  width: 90%;
+  border-style: none;
+}
+
+.eye-flex-btn {
+  display: inline-block;
+  border-style: none;
+}
 </style>

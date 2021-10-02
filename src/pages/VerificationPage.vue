@@ -2,53 +2,24 @@
   <div class="login2-main-div">
     <div class="nav-type">
       <img src="../assets/logo/logo.png" alt="" width="180" />
-
-      <div>
-        <p class="sign-up-btn text-sign-up">Alerady have an account?</p>
-        <router-link to="/login">
-          <button class="nav-btn-sign-up sign-up-btn">Log in</button>
-        </router-link>
-      </div>
     </div>
 
     <div class="for-flex">
       <div class="log-box-div">
-        <p class="login-email">Create account</p>
+        <p class="login-email">Verification</p>
 
-        <p class="p-information">Enter your information below to continue.</p>
-        <label class="lable-inp">
-          First Name
-          <input type="text" class="box-aligment" />
-        </label>
-        <br />
-        <label class="lable-inp">
-          Last Name
-          <input type="text" class="box-aligment" />
-        </label>
-        <br />
+        <p class="p-information">Enter your 6-digit verification code</p>
 
         <label class="lable-inp">
-          Number
-          <input type="text" class="box-aligment" placeholder="0-0000000-00" />
-        </label>
-        <br />
-
-        <label class="lable-inp">
-          Email
+          Enter your six digit verification code
           <input type="email" class="box-aligment" />
         </label>
         <br />
 
-        <label class="lable-inp">
-          Confirm Email
-          <input type="email" class="box-aligment" />
-        </label>
-        <br />
-
-       
+        
 
         <div class="btn-log-div">
-          <button class="btn-log">Continue</button>
+          <button class="btn-log">Verify</button>
         </div>
       </div>
     </div>
@@ -57,7 +28,7 @@
 
 <script>
 export default {
-  name: "SignUp",
+  name: "VerificationPage",
 };
 </script>
 
@@ -66,6 +37,7 @@ export default {
   display: flex;
   justify-content: space-between;
   padding: 30px;
+  margin-bottom: 5%;
 }
 
 .sign-up-btn {
@@ -84,7 +56,6 @@ export default {
   justify-content: center;
   align-items: center;
   min-width: 400px;
-  
 }
 
 .log-box-div {
@@ -116,14 +87,6 @@ export default {
   margin-bottom: 20px;
 }
 
-.six-label {
-  width: 100%;
-  border-radius: 6px;
-  padding: 7px;
-  padding-left: 15px;
-  margin-bottom: 20px;
-}
-
 .btn-log {
   width: 71%;
   border-style: none;
@@ -135,6 +98,10 @@ export default {
   border-radius: 5px;
   padding: 10px 0;
 }
+
+/* .btn-log:active {
+    
+} */
 
 .btn-log-div {
   display: flex;
