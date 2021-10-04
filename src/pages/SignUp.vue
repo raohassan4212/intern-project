@@ -51,11 +51,9 @@
           </label>
           <br />
 
-          <!-- <router-link to="/verification"> -->
           <div class="btn-log-div">
             <button v-on:click="signUpUser" class="btn-log">Continue</button>
           </div>
-          <!-- </router-link> -->
         </div>
       </div>
     </div>
@@ -119,7 +117,7 @@ export default {
           this.step = "2";
         })
         .catch((err) => {
-          console.log(err);
+          console.log("err ====> ",err);
         });
     },
     verify() {

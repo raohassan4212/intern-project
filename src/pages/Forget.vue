@@ -1,26 +1,52 @@
 <template>
-  <div class="login2-main-div">
-    <div class="nav-type">
-      <img src="../assets/logo/logo.png" alt="" width="180" />
+  <div>
+    <div v-if="step === '1'" class="login2-main-div">
+      <div class="nav-type">
+        <img src="../assets/logo/logo.png" alt="" width="180" />
+      </div>
+
+      <div class="for-flex">
+        <div class="log-box-div">
+          <p class="login-email">Reset password</p>
+
+          <p class="p-information">
+            Enter the email address associated with your account to get password
+            reset instructions
+          </p>
+
+          <label class="lable-inp">
+            Email
+            <input v-model="email" type="email" class="box-aligment" />
+          </label>
+          <br />
+
+          <div class="btn-log-div">
+            <button v-on:click="forgetPassword" class="btn-log">Continue</button>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="for-flex">
-      <div class="log-box-div">
-        <p class="login-email">Reset password</p>
 
-        <p class="p-information">
-          Enter the email address associated with your account to  get password reset instructions
-        </p>
-  
+    <div v-if="step === '2'" class="login2-main-div">
+      <div class="nav-type">
+        <img src="../assets/logo/logo.png" alt="" width="180" />
+      </div>
 
-        <label class="lable-inp">
-          Email
-          <input v-model="email" type="email" class="box-aligment" />
-        </label>
-        <br />
+      <div class="for-flex">
+        <div class="log-box-div">
+          <p class="login-email">Verification</p>
 
-        <div class="btn-log-div">
-          <button class="btn-log">Continue</button>
+          <p class="p-information">Enter your 6-digit verification code</p>
+
+          <label class="lable-inp">
+            Enter your six digit verification code
+            <input v-model="code" type="email" class="box-aligment" />
+          </label>
+          <br />
+            <div class="btn-log-div">
+              <button v-on:click="verify" class="btn-log">Verify</button>
+            </div>
         </div>
       </div>
     </div>
@@ -28,13 +54,14 @@
 </template>
 
 <script>
-
 export default {
   name: "Forget",
   data() {
     return {
-      email: ""
-    }
+      email: "",
+      step: "1",
+      code: ""
+    };
   },
   methods: {
     forgetPassword() {
@@ -46,14 +73,14 @@ export default {
           email: this.email,
         },
       })
-      .then(() => {
-
-      })
-      .catch((err) => {
-        
-      })
-    }
-  }
+        .then(() => {
+          this.step = "2";
+        })
+        .catch((err) => {
+          console.log("forget Err ", err)
+        });
+    },
+  },
 };
 </script>
 
@@ -112,7 +139,6 @@ export default {
   margin-bottom: 20px;
 }
 
-
 .btn-log {
   width: 71%;
   border-style: none;
@@ -151,10 +177,8 @@ export default {
   font-size: 14px;
 }
 
-
 .he {
   margin: 0px !important;
-  padding: 0px !important; 
+  padding: 0px !important;
 }
-
 </style>
