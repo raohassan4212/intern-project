@@ -1,55 +1,85 @@
 <template>
-  <div class="login2-main-div">
-    <div class="nav-type">
-      <img src="../assets/logo/logo.png" alt="" width="180" />
+  <div>
+    <div v-if="step === '1'" class="login2-main-div">
+      <div class="nav-type">
+        <img src="../assets/logo/logo.png" alt="" width="180" />
 
-      <div>
-        <p class="sign-up-btn text-sign-up">Alerady have an account?</p>
-        <router-link to="/login">
-          <button class="nav-btn-sign-up sign-up-btn">Log in</button>
-        </router-link>
+        <div>
+          <p class="sign-up-btn text-sign-up">Alerady have an account?</p>
+          <router-link to="/login">
+            <button class="nav-btn-sign-up sign-up-btn">Log in</button>
+          </router-link>
+        </div>
+      </div>
+
+      <div class="for-flex">
+        <div class="log-box-div">
+          <p class="login-email">Create account</p>
+
+          <p class="p-information">Enter your information below to continue.</p>
+          <label class="lable-inp">
+            First Name
+            <input v-model="firstName" type="text" class="box-aligment" />
+          </label>
+          <br />
+          <label class="lable-inp">
+            Last Name
+            <input v-model="lastName" type="text" class="box-aligment" />
+          </label>
+          <br />
+
+          <label class="lable-inp">
+            Number
+            <input
+              v-model="number"
+              type="text"
+              class="box-aligment"
+              placeholder="0-0000000-00"
+            />
+          </label>
+          <br />
+
+          <label class="lable-inp">
+            Email
+            <input v-model="email" type="email" class="box-aligment" />
+          </label>
+          <br />
+
+          <label class="lable-inp">
+            Password
+            <input v-model="password" type="password" class="box-aligment" />
+          </label>
+          <br />
+
+          <!-- <router-link to="/verification"> -->
+          <div class="btn-log-div">
+            <button v-on:click="signUpUser" class="btn-log">Continue</button>
+          </div>
+          <!-- </router-link> -->
+        </div>
       </div>
     </div>
 
-    <div class="for-flex">
-      <div class="log-box-div">
-        <p class="login-email">Create account</p>
+    <div v-if="step === '2'" class="login2-main-div">
+      <div class="nav-type">
+        <img src="../assets/logo/logo.png" alt="" width="180" />
+      </div>
 
-        <p class="p-information">Enter your information below to continue.</p>
-        <label class="lable-inp">
-          First Name
-          <input type="text" class="box-aligment" />
-        </label>
-        <br />
-        <label class="lable-inp">
-          Last Name
-          <input type="text" class="box-aligment" />
-        </label>
-        <br />
+      <div class="for-flex">
+        <div class="log-box-div">
+          <p class="login-email">Verification</p>
 
-        <label class="lable-inp">
-          Number
-          <input type="text" class="box-aligment" placeholder="0-0000000-00" />
-        </label>
-        <br />
+          <p class="p-information">Enter your 6-digit verification code</p>
 
-        <label class="lable-inp">
-          Email
-          <input type="email" class="box-aligment" />
-        </label>
-        <br />
-
-        <label class="lable-inp">
-          Confirm Email
-          <input type="email" class="box-aligment" />
-        </label>
-        <br />
-
-        <router-link to="/verification">
-          <div class="btn-log-div">
-            <button class="btn-log">Continue</button>
-          </div>
-        </router-link>
+          <label class="lable-inp">
+            Enter your six digit verification code
+            <input v-model="code" type="email" class="box-aligment" />
+          </label>
+          <br />
+            <div class="btn-log-div">
+              <button v-on:click="verify" class="btn-log">Verify</button>
+            </div>
+        </div>
       </div>
     </div>
   </div>
@@ -58,6 +88,69 @@
 <script>
 export default {
   name: "SignUp",
+  data() {
+    return {
+      firstName: "",
+      lastName: "",
+      number: "",
+      email: "",
+      password: "",
+      step: "1",
+      code: "",
+    };
+  },
+  methods: {
+    signUpUser() {
+      fetch("http://localhost:5000/create", {
+        cache: "default",
+        mode: "cors",
+        method: "POST",
+        headers: {
+          firstname: this.firstName,
+          lastname: this.lastName,
+          number: this.number,
+          email: this.email,
+          password: this.password,
+        },
+      })
+        .then(async () => {
+          console.log("email is send");
+          console.log(this.lastName);
+          this.step = "2";
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+    verify() {
+      fetch("http://localhost:5000/verify", {
+        cache: "default",
+        mode: "cors",
+        method: "POST",
+        headers: {
+          email: this.email,
+          code: this.code,
+        },
+      })
+        .then(async (res) => {
+          console.log(this.code);
+          console.log(res);
+          if (res.ok) {
+            alert("User is verified");
+            this.$router.push("/login");
+          } else {
+            alert("Verification code is invalid");
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+
+    com() {
+      console.log("Chal raha ah");
+    },
+  },
 };
 </script>
 

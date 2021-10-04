@@ -15,7 +15,7 @@
 
         <label class="lable-inp">
           Email
-          <input type="email" class="box-aligment" />
+          <input v-model="email" type="email" class="box-aligment" />
         </label>
         <br />
 
@@ -31,8 +31,29 @@
 
 export default {
   name: "Forget",
-  
+  data() {
+    return {
+      email: ""
+    }
+  },
+  methods: {
+    forgetPassword() {
+      fetch("http://localhost:5000/forget", {
+        cache: "default",
+        mode: "cors",
+        method: "POST",
+        headers: {
+          email: this.email,
+        },
+      })
+      .then(() => {
 
+      })
+      .catch((err) => {
+        
+      })
+    }
+  }
 };
 </script>
 
