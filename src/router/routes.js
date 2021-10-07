@@ -24,6 +24,8 @@ import PackageSubscription from "@/pages/PackageSubscription.vue";
 import VacantProperty from "@/pages/VacantProperty.vue";
 import PropertyOccupied from "@/pages/PropertyOccupied.vue";
 import Image from "@/pages/Image.vue";
+import WhatInclude from "@/pages/WhatInclude.vue";
+
 
 
 
@@ -42,6 +44,7 @@ const routes = [
   { path: "/vacant-property", component: VacantProperty },
   { path: "/property-occupied", component: PropertyOccupied },
   { path: "/image", component: Image },
+  { path: "/what-include", component: WhatInclude },
   {
     path: "/",
     component: DashboardLayout,

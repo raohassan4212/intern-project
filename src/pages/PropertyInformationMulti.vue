@@ -25,7 +25,6 @@
               <option value="saab">Single family</option>
               <option value="opel">Multi Family</option>
             </select>
-            <!-- <input v-model="firstName" type="text" class="box-aligment" /> -->
           </label>
           <br />
 
