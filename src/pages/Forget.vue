@@ -45,7 +45,7 @@
           </label>
           <br />
             <div class="btn-log-div">
-              <button v-on:click="verify" class="btn-log">Verify</button>
+              <button v-on:click="verifiedForgetUser" class="btn-log">Verify</button>
             </div>
         </div>
       </div>
@@ -80,6 +80,29 @@ export default {
           console.log("forget Err ", err)
         });
     },
+    verifiedForgetUser() {
+      fetch("http://localhost:5000/verified-forget", {
+        cache: "default",
+        mode: "cors",
+        method: "POST",
+        headers: {
+          email: this.email,
+          code: this.code
+        }
+      })
+      .then((res) => {
+        console.log("User is login")
+        if (res.ok) {
+            alert("Email is verified");
+            this.$router.push("/change-password");
+          } else {
+            alert("Verification code is invalid");
+          }
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+    }
   },
 };
 </script>

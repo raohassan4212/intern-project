@@ -15,6 +15,15 @@ import SignUp from "@/pages/SignUp.vue";
 import Forget from "@/pages/Forget.vue";
 import ChangePassword from "@/pages/ChangePassword.vue";
 import VerificationPage from "@/pages/VerificationPage.vue";
+import AccountType from "@/pages/AccountType.vue";
+import PropertyInformation from "@/pages/PropertyInformation.vue";
+import PropertyInformationMulti from "@/pages/PropertyInformationMulti.vue";
+import AddTenantProperty from "@/pages/AddTenantProperty.vue";
+import LeaseDetail from "@/pages/LeaseDetail.vue";
+import PackageSubscription from "@/pages/PackageSubscription.vue";
+import VacantProperty from "@/pages/VacantProperty.vue";
+import PropertyOccupied from "@/pages/PropertyOccupied.vue";
+import Image from "@/pages/Image.vue";
 
 
 
@@ -24,6 +33,15 @@ const routes = [
   { path: "/forget", component: Forget },
   { path: "/change-password", component: ChangePassword },
   { path: "/verification", component: VerificationPage },
+  { path: "/account-type", component: AccountType },
+  { path: "/property-information", component: PropertyInformation },
+  { path: "/property-information-multi", component: PropertyInformationMulti },
+  { path: "/add-tenant-property", component: AddTenantProperty },
+  { path: "/lease-detail", component: LeaseDetail },
+  { path: "/package-subscription", component: PackageSubscription },
+  { path: "/vacant-property", component: VacantProperty },
+  { path: "/property-occupied", component: PropertyOccupied },
+  { path: "/image", component: Image },
   {
     path: "/",
     component: DashboardLayout,
@@ -35,11 +53,6 @@ const routes = [
         name: "dashboard",
         component: Dashboard
       },
-      // {
-      //   path: "login",
-      //   name: "login",
-      //   component: Login
-      // },
       {
         path: "stats",
         name: "stats",
