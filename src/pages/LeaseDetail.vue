@@ -14,7 +14,6 @@
               <option value="volvo">Fixed</option>
               <option value="opel">Month to Month</option>
             </select>
-            <!-- <input v-model="firstName" type="text" class="box-aligment" /> -->
           </label>
           <br />
 
@@ -50,7 +49,7 @@
             </label>
             <br />
             <label class="lable-inp gap">
-              Deposite*
+              Deposit*
               <input
                 v-model="lastName"
                 type="text"

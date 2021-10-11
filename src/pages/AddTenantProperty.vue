@@ -11,10 +11,10 @@
     </div>
     <div class="for-flex">
       <div class="log-box-div">
-        <p class="login-email">Add a tenant to the property</p>
+        <p class="login-email">Add a Tenant to the property</p>
 
         <p class="p-information">
-          Create a tenant contact and invite them to use TenantCloud with you.
+          Create a tenant contact and invite them to use Vendr with you.
         </p>
         <div>
         
@@ -51,7 +51,7 @@
         
 
         <div>
-            <input type="checkbox"  class="inline-check-p check" > <p class="inline-check-p">Invite the tenant to see lease information in TenantCloud</p>
+            <input type="checkbox"  class="inline-check-p check" > <p class="inline-check-p">Invite the tenant to see lease information in Vendr</p>
         </div>
 
         <div>
@@ -139,10 +139,12 @@ export default {
   font-size: 12px;
   color: black;
 }
-
+.box-aligment select{
+-webkit-appearance:default-button;
+}
 .box-aligment {
   width: 100%;
-  border-style: none;
+  /* border-style: none; */
   font-size: 14px;
 }
 

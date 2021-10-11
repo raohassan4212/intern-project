@@ -26,7 +26,7 @@
         <label class="lable-inp">
           <span class="radio-span"><input class="inp-radio" type="radio"></span>
           <span class="inline-span">
-              <div class="b-text"> <b>Vendr</b> </div>
+              <div class="b-text"> <b>Tenant</b> </div>
               <div>Find a place and pay rent online</div>
           </span>
         </label>

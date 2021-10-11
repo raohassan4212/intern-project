@@ -1,8 +1,8 @@
 <template>
   <div class="vacant-pro-main">
-      <div>
-          <button class="back-btn">Back</button>
-      </div>
+    <div>
+      <button class="back-btn">Back</button>
+    </div>
     <div class="sub-flex">
       <div class="flex-width">
         <h3 class="h3-occupied">Is this property occupied?</h3>
@@ -117,11 +117,11 @@ export default {
 }
 
 .yn-sub {
-    text-align: center;
-    color: black;
-    font-weight: bold;
-    font-size: 18px;
-} 
+  text-align: center;
+  color: black;
+  font-weight: bold;
+  font-size: 18px;
+}
 
 .back-btn {
   width: 89px;
@@ -135,6 +135,6 @@ export default {
   color: black;
   position: relative;
   top: 45px;
-left: 190px;
+  left: 190px;
 }
 </style>

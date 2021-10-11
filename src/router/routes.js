@@ -25,6 +25,11 @@ import VacantProperty from "@/pages/VacantProperty.vue";
 import PropertyOccupied from "@/pages/PropertyOccupied.vue";
 import Image from "@/pages/Image.vue";
 import WhatInclude from "@/pages/WhatInclude.vue";
+import ChipInclude from "@/pages/ChipInclude.vue";
+import FreeWebsite from "@/pages/FreeWebsite.vue";
+import Congratulation from "@/pages/Congratulation.vue";
+import TenantAccount from "@/pages/TenantAccount.vue";
+import ProServices from "@/pages/ProServices.vue";
 
 
 
@@ -45,6 +50,11 @@ const routes = [
   { path: "/property-occupied", component: PropertyOccupied },
   { path: "/image", component: Image },
   { path: "/what-include", component: WhatInclude },
+  { path: "/chip-include", component: ChipInclude },
+  { path: "/free-website", component: FreeWebsite },
+  { path: "/congratulation", component: Congratulation },
+  { path: "/tenant-account", component: TenantAccount },
+  { path: "/pro-services", component: ProServices },
   {
     path: "/",
     component: DashboardLayout,

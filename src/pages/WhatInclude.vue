@@ -28,13 +28,52 @@
 
           <label class="lable-inp">
             Air Conditioning*
-            <select name="cars" id="cars" class="box-aligment">
-              <option value="volvo">Air Conditioning</option>
+            <select class="box-aligment">
+              <option value="volvo">Air Conditioning</option> -->
               <option value="saab">Single family</option>
               <option value="opel">Multi Family</option>
             </select>
           </label>
         </div>
+
+        <div class="lable-main">
+          <label class="lable-inp">
+            Eectricity*
+            <select name="cars" id="cars" class="box-aligment">
+              <option value="DISCO">DISCO</option>
+              <option value="Private">Private</option>
+            </select>
+          </label>
+
+          <label class="lable-inp">
+            Water*
+            <select name="cars" id="cars" class="box-aligment">
+              <option value="State">State</option>
+              <option value="Private">Private</option>
+            </select>
+          </label>
+
+          <label class="lable-inp">
+            Gas*
+            <select name="cars" id="cars" class="box-aligment">
+              <option value="volvo">BRAND 1</option>
+              <option value="saab">BRAND 2</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="lable-main">
+          <label class="lable-inp">
+            Insurance*
+            <select name="cars" id="cars" class="box-aligment">
+              <option value="volvo">Yes</option>
+              <option value="saab">No</option>
+            </select>
+          </label>
+        </div>
+
+
+        
 
         <div class="btn-log-div">
           <button class="btn-log">Next</button>

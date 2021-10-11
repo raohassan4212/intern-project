@@ -14,7 +14,7 @@
         <p class="login-email">Property Information</p>
 
         <p class="p-information">
-          Managing you rental business with TenantCloud starts with adding your
+          Managing you rental business with Vendr starts with adding your
           first property. You can add more units later on.
         </p>
         <div>
