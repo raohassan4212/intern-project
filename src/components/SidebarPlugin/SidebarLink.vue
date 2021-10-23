@@ -61,4 +61,11 @@ export default {
 };
 </script>
 <style>
+.nav-item {
+  background-color: white;
+}
+
+.nav-link {
+  color: black !important;
+}
 </style>

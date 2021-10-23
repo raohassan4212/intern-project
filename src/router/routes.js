@@ -30,6 +30,17 @@ import FreeWebsite from "@/pages/FreeWebsite.vue";
 import Congratulation from "@/pages/Congratulation.vue";
 import TenantAccount from "@/pages/TenantAccount.vue";
 import ProServices from "@/pages/ProServices.vue";
+import ApplicationInvitation from "../components/ApplicationInvitation.vue"
+import ApplicationFindPlace from "../components/ApplicationFindPlace.vue";
+import CustomerSupport from "../components/CustomerSupport.vue";
+import HelpChoose from "../components/HelpChoose.vue";
+import HelpCategory from "../components/HelpCategory.vue";
+import HelpCircleOption from "../components/HelpCircleOption.vue";
+import HelpPayrentsQuestion from "../components/HelpPayrentsQuestion.vue";
+import Setting from "@/pages/Setting.vue";
+import AccountSetting from "@/pages/AccountSetting.vue";
+import AccountSettingStepTwo from "@/pages/AccountSettingStepTwo.vue";
+import RenterSetting from "@/pages/RenterSetting.vue";
 
 
 
@@ -55,6 +66,7 @@ const routes = [
   { path: "/congratulation", component: Congratulation },
   { path: "/tenant-account", component: TenantAccount },
   { path: "/pro-services", component: ProServices },
+
   {
     path: "/",
     component: DashboardLayout,
@@ -95,7 +107,62 @@ const routes = [
         path: "table-list",
         name: "table-list",
         component: TableList
-      }
+      },
+      {
+        path: "application-invitation",
+        name: "Application Invitation",
+        component: ApplicationInvitation
+      },
+      {
+        path: "application/findplace",
+        name: "ApplicationFindPlace",
+        component: ApplicationFindPlace
+      },
+      {
+        path: "customer/support",
+        name: "Customer Support",
+        component: CustomerSupport
+      },
+      {
+        path: "helpchoose",
+        name: "Help Choose",
+        component: HelpChoose
+      },
+      {
+        path: "helpcategory",
+        name: "Help Category",
+        component: HelpCategory
+      },
+      {
+        path: "helpcircleoption",
+        name: "Help Circle Option",
+        component: HelpCircleOption
+      },
+      {
+        path: "help-payrents-question",
+        name: "Help Payrents Question",
+        component: HelpPayrentsQuestion
+      },
+      {
+        path: "setting",
+        name: "Setting",
+        component: Setting
+      },
+      {
+        path: "account-setting",
+        name: "Account Setting",
+        component: AccountSetting
+      },
+      {
+        path: "account-setting-step-two",
+        name: "Account Setting StepTwo",
+        component: AccountSettingStepTwo
+      },
+      {
+        path: "renter-setting",
+        name: "Renter Setting",
+        component: RenterSetting
+      },
     ]
   },
   { path: "*", component: Login },

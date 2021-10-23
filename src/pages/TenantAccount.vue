@@ -9,7 +9,7 @@
         </router-link>
       </div>
     </div>
-    <div v-if="step === '1'" class="sub-flex">
+    <div v-if="step === 1" class="sub-flex">
       <div class="flex-width">
         <h3 class="h3-occupied">Are you looking for a new place?</h3>
         <p class="p-occupied">
@@ -17,11 +17,10 @@
           happily moved-in just click No.
         </p>
         <div class="y-n-main">
-          <div class="yn-sub">
+          <div class="yn-sub" v-on:click="nextStep">
             <div class="yes">
               Y
               <input
-                v-model="Yes"
                 value="yes"
                 class="inp-radio"
                 style="height: 35px; width: 35px"
@@ -30,7 +29,7 @@
             </div>
             Yes
           </div>
-          <div class="yn-sub">
+          <div class="yn-sub" v-on:click="noNextBtn">
             <div class="No">
               N
               <input
@@ -47,9 +46,9 @@
     </div>
 
     <!-- step  2-->
-    <div v-if="step === '2'">
+    <div v-if="step === 2">
       <div>
-        <button class="back-btn">Back</button>
+        <button class="back-btn" v-on:click="backBtn">Back</button>
       </div>
       <div class="sub-flex">
         <div class="flex-width">
@@ -62,7 +61,6 @@
             <label class="lable-inp">
               Location*
               <input
-                v-model="lastName"
                 type="text"
                 class="box-aligment"
                 placeholder="Type city, state or zip code"
@@ -73,7 +71,7 @@
             <p class="p-location">Use my current location</p>
           </div>
           <div class="btn-log-div">
-            <button class="btn-log">Next</button>
+            <button class="btn-log" v-on:click="nextStep">Next</button>
           </div>
         </div>
       </div>
@@ -81,9 +79,9 @@
 
     <!-- step  3 -->
 
-    <div v-if="step === '3'">
+    <div v-if="step === 3">
       <div>
-        <button class="back-btn">Back</button>
+        <button class="back-btn" v-on:click="backBtn">Back</button>
       </div>
       <div class="sub-flex">
         <div>
@@ -91,21 +89,24 @@
           <p class="p-occupied">
             Select the property features and amenities below.
           </p>
-          <div class="main-chip-div">
-            <div v-for="item in chips" class="chip">{{ item.chip }}</div>
-          </div>
+          <MultiSelectChip :data="fields[0].data" :change="handleClick" />
+          <!-- <div class="main-chip-div">
+            <div v-for="(item, i) in chips" class="chip" :key="i">
+              {{ item.chip }}
+            </div>
+          </div> -->
           <div class="btn-log-div">
-            <button class="btn-log">Next</button>
+            <button class="btn-log" v-on:click="nextStep">Next</button>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- step  3 -->
+    <!-- step  4 -->
 
-    <div v-if="step === '4'">
+    <div v-if="step === 4">
       <div>
-        <button class="back-btn">Back</button>
+        <button class="back-btn" v-on:click="backBtn">Back</button>
       </div>
       <div class="sub-flex">
         <div>
@@ -155,26 +156,22 @@
             <div>
               <div class="per-month-div-flex">
                 <div class="min-stack">
-                  <h3 class="h3-inline-block">Min</h3>
-                  <h3 class="h3-inline-block h3-color">$1300</h3>
+                  <h3 class="h3-inline-block">Min -</h3>
+                  <h3 class="h3-inline-block h3-color">$ {{ val + 50 }}</h3>
                 </div>
                 <div>
                   <h3 class="h3-per-month">per month</h3>
                 </div>
               </div>
               <div class="slidecontainer">
-                <!-- <p>Default range slider:</p> -->
-                <input type="range" min="1" max="100" value="50" class="ran" />
-
-                <!-- <p>Custom range slider:</p>
                 <input
                   type="range"
                   min="1"
                   max="100"
+                  v-model="val"
                   value="50"
-                  class="slider"
-                  id="myRange"
-                /> -->
+                  class="ran"
+                />
               </div>
 
               <div class="switch-2margin">
@@ -189,8 +186,81 @@
             </div>
           </div>
           <div class="btn-log-div">
-          <button class="btn-log">Next</button>
+            <button class="btn-log" v-on:click="nextStep">Next</button>
+          </div>
         </div>
+      </div>
+    </div>
+
+    <!-- step  5 -->
+
+    <div v-if="step === 5">
+      <div>
+        <button class="back-btn" v-on:click="backBtn">Back</button>
+      </div>
+      <div class="sub-flex">
+        <div class="flex-max-width">
+          <h3 class="h3-occupied">
+            Do you want to connect with your landlord?
+          </h3>
+          <p class="p-occupied">
+            Tell your landlord you're using TenantCloud. We'll send them an
+            email invite to join you and share the lease.
+          </p>
+          <div class="label-flex">
+            <label class="lable-inp">
+              Email*
+              <input v-model="email" type="email" class="box-aligment" />
+            </label>
+          </div>
+          <div class="other-btn-div">
+            <button class="other-btn">I will do it later ></button>
+          </div>
+          <div class="btn-log-div">
+            <button class="btn-log" v-on:click="nextStep">Next</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- step  6 -->
+
+    <div v-if="step === 6">
+      <div class="sub-flex">
+        <div class="flex-max-width">
+          <h3 class="h3-occupied">Well done!</h3>
+          <p class="p-occupied">
+            You have successfully set up your perfect home search preferences.
+            Get the free TenantCloud app for a better experience.
+          </p>
+          <div class="qrCode">
+            <div class="appleGoogleMargin">
+              <div class="googlePlay">
+                <img
+                  src="https://cdn.tenantcloud.com/builds/v37.7.12/web/images/static/email/google-play@2x.png"
+                  alt=""
+                  width="150px"
+                />
+              </div>
+              <div>
+                <img
+                  src="https://cdn.tenantcloud.com/builds/v37.7.12/web/images/static/email/app-store@2x.png"
+                  alt=""
+                  width="150px"
+                />
+              </div>
+            </div>
+            <div>
+              <img
+                src="https://cdn.tenantcloud.com/builds/v37.7.12/web/images/mobile/qr-code-app-link.svg"
+                alt=""
+                width="150px"
+              />
+            </div>
+          </div>
+          <div class="btn-log-div">
+            <button class="btn-log" v-on:click="nextStep">Start Using Vendr</button>
+          </div>
         </div>
       </div>
     </div>
@@ -199,13 +269,40 @@
 
 
 <script>
+import MultiSelectChip from "../components/MultiSelectChip.vue";
 export default {
   name: "TenantAccount",
+  components: {
+    MultiSelectChip,
+  },
   data() {
     return {
       yes: "",
       no: "",
-      step: "4",
+      step: 1,
+      val: 10,
+      fields: [
+        {
+          title: "Cleaning",
+          icon: "https://cdn.tenantcloud.com/builds/v37.6.21/web/images/shared/professional-category/cleaning.svg",
+          desc: "Select services you can provide. Use the 'Other' option if you can't find your service type.",
+          sel: 0,
+          data: [
+            { chip: "Room" },
+            { chip: "Apartment" },
+            { chip: "Multiplex" },
+            { chip: "Single Family" },
+            { chip: "Townhouse" },
+            { chip: "Condo" },
+            { chip: "Commercial" },
+            { chip: "Storage" },
+            { chip: "Parking Space" },
+            { chip: "Suite" },
+            { chip: "Mobile Home" },
+            { chip: "Villa" },
+          ],
+        },
+      ],
       chips: [
         { chip: "Room" },
         { chip: "Apartment" },
@@ -224,8 +321,17 @@ export default {
   },
 
   methods: {
+    nextStep() {
+      this.step = this.step + 1;
+    },
+    noNextBtn() {
+      this.step = this.step + 4;
+    },
+    backBtn() {
+      this.step = this.step - 1;
+    },
     test() {
-      console.log;
+      console.log(this.val);
     },
   },
 };
@@ -304,6 +410,14 @@ export default {
   color: white;
 }
 
+.yes:active {
+  background-color: #007bff;
+}
+
+.No:active {
+  background-color: #007bff;
+}
+
 .No {
   border-style: none;
   border: 1px solid #829ab1;
@@ -354,6 +468,10 @@ export default {
   left: 190px;
 }
 
+.back-btn:active {
+  color: grey;
+}
+
 .lable-inp {
   border: 2px solid lightgrey;
   width: 60%;
@@ -396,7 +514,7 @@ export default {
 }
 
 .btn-log {
-  width: 25%;
+  width: 35%;
   border-style: none;
   border: 2px solid #007bff;
   background-color: #007bff;
@@ -404,6 +522,11 @@ export default {
   font-size: 18px;
   border-radius: 5px;
   padding: 10px 0;
+}
+
+.btn-log:active {
+  border: 2px solid #5ba4f1;
+  background-color: #5ba4f1;
 }
 
 /* step 3 css */
@@ -592,5 +715,60 @@ input:checked + .slider:before {
 
 .sw-ma {
   margin-top: 15px;
+}
+
+/* step no 5 */
+
+.lable-inp {
+  border: 2px solid lightgrey;
+  width: 60%;
+  border-radius: 6px;
+  padding: 7px;
+  padding-left: 15px;
+  margin-bottom: 20px;
+  font-size: 12px;
+  color: black;
+}
+
+.box-aligment {
+  width: 100%;
+  border-style: none;
+  font-size: 14px;
+}
+
+.label-flex {
+  display: flex;
+  justify-content: center;
+}
+
+.flex-max-width {
+  max-width: 700px;
+}
+
+.other-btn-div {
+  display: flex;
+  justify-content: center;
+}
+
+.other-btn {
+  border-style: none;
+  font-size: 20px;
+  color: #007bff;
+}
+
+/* step  6 */
+
+.qrCode {
+  display: flex;
+  justify-content: center;
+}
+
+.googlePlay {
+  margin-bottom: 50px;
+  margin-top: 5px;
+}
+
+.appleGoogleMargin {
+  margin-right: 20px;
 }
 </style>

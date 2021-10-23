@@ -1,6 +1,6 @@
 <template>
-    <div class="row">
-      <div class="col-xl-4 col-lg-5 col-md-6">
+    <div>
+      <!-- <div class="col-xl-4 col-lg-5 col-md-6">
         <user-card>
 
         </user-card>
@@ -12,18 +12,21 @@
         <edit-profile-form>
 
         </edit-profile-form>
-      </div>
+      </div> -->
+      <AccountingTable />
     </div>
 </template>
 <script>
 import EditProfileForm from "./UserProfile/EditProfileForm.vue";
 import UserCard from "./UserProfile/UserCard.vue";
 import MembersCard from "./UserProfile/MembersCard.vue";
+import AccountingTable from "../components/AccountingTable.vue"
 export default {
   components: {
     EditProfileForm,
     UserCard,
-    MembersCard
+    MembersCard,
+    AccountingTable
   }
 };
 </script>

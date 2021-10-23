@@ -43,11 +43,11 @@ export default {
   props: {
     title: {
       type: String,
-      default: "Paper Dashboard"
+      default: "Vendr"
     },
     backgroundColor: {
       type: String,
-      default: "black",
+      default: "",
       validator: value => {
         let acceptedValues = ["white", "black", "darkblue"];
         return acceptedValues.indexOf(value) !== -1;
@@ -133,4 +133,7 @@ export default {
 };
 </script>
 <style>
+.sidebar {
+  background-color: white !important;
+}
 </style>

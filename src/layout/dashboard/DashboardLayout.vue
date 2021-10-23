@@ -2,13 +2,15 @@
   <div class="wrapper">
     <side-bar>
       <template slot="links">
-        <sidebar-link to="/dashboard" name="Dashboard" icon="ti-panel"/>
-        <sidebar-link to="/stats" name="User Profile" icon="ti-user"/>
-        <sidebar-link to="/table-list" name="Table List" icon="ti-view-list-alt"/>
-        <sidebar-link to="/typography" name="Typography" icon="ti-text"/>
-        <sidebar-link to="/icons" name="Icons" icon="ti-pencil-alt2"/>
-        <sidebar-link to="/maps" name="Map" icon="ti-map"/>
-        <sidebar-link to="/notifications" name="Notifications" icon="ti-bell"/>
+        <p class="menu-p">Menu</p>
+        <sidebar-link to="/dashboard" name="Dashboard" icon="ti-layout"/>
+        <sidebar-link to="/stats" name="Rent" icon="ti-wallet"/>
+        <sidebar-link to="/typography" name="Request" icon="ti-text"/>
+        <sidebar-link to="/table-list" name="Application" icon="ti-view-list-alt"/>
+        <sidebar-link to="/icons" name="Customer Support" icon="ti-microphone"/>
+        <!-- <sidebar-link to="/maps" name="Map" icon="ti-map"/>
+        <i class="fas fa-dollar-sign"></i>
+        <sidebar-link to="/notifications" name="Notifications" icon="ti-bell"/> -->
       </template>
       <mobile-menu>
         <li class="nav-item">
@@ -70,3 +72,11 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.menu-p {
+  margin-left: 25px !important;
+  margin-top: 35px !important;
+  font-size: 15px !important;
+}
+</style>

@@ -14,36 +14,38 @@
       <div class="log-box-div">
         <p class="login-email">Account Type</p>
 
-        <p class="p-information">Select the account type that suit you the best. Every account have different set of tools.</p>
-        <label class="lable-inp">
-          <span class="radio-span"><input class="inp-radio" type="radio"></span>
+        <p class="p-information">
+          Select the account type that suit you the best. Every account have
+          different set of tools.
+        </p>
+        <label
+          v-for="(item, i) in accountTypeFields"
+          class="lable-inp"
+          :key="i"
+        >
+          <span class="radio-span">
+            <input
+              class="inp-radio"
+              type="radio"
+              name="radio"
+              :value="item.radioBtnVal"
+              @change="onChange($event)"
+            />
+          </span>
           <span class="inline-span">
-              <div class="b-text"> <b>Landlord</b> </div>
-              <div>Accept rent online and manage rentals</div>
+            <div class="b-text">
+              <b>{{ item.title }}</b>
+            </div>
+            <div>{{ item.desc }}</div>
           </span>
         </label>
-        <br />
-        <label class="lable-inp">
-          <span class="radio-span"><input class="inp-radio" type="radio"></span>
-          <span class="inline-span">
-              <div class="b-text"> <b>Tenant</b> </div>
-              <div>Find a place and pay rent online</div>
-          </span>
-        </label>
-        <br />
-
-        <label class="lable-inp">
-          <span class="radio-span"><input class="inp-radio" type="radio"></span>
-          <span class="inline-span">
-              <div class="b-text"> <b>Service Pro</b> </div>
-              <div>Manage request from landlords and find new job</div>
-          </span>
-        </label>
-        <br />
-
-        <div class="btn-log-div">
-          <button class="btn-log">Next</button>
-        </div>
+        <router-link :to="selectedAccountType">
+          <div class="btn-log-div">
+            <button class="btn-log" >
+              Next
+            </button>
+          </div>
+        </router-link>
       </div>
     </div>
   </div>
@@ -52,6 +54,36 @@
 <script>
 export default {
   name: "AccountType",
+  data() {
+    return {
+      selectedAccountType: "",
+      accountTypeFields: [
+        {
+          title: "Landlord",
+          desc: "Accept rent online and manage rentals",
+          radioBtnVal: "./landlord",
+        },
+        {
+          title: "Tenant",
+          desc: "Find a place and pay rent online",
+          radioBtnVal: "./tenant-account",
+        },
+        {
+          title: "Service Pro",
+          desc: "Manage request from landlords and find new job",
+          radioBtnVal: "/pro-services",
+        },
+      ],
+    };
+  },
+  methods: {
+    onChange(event) {
+      var data = event.target.value;
+      this.selectedAccountType = data;
+      console.log(this.selectedAccountType);
+    },
+    nextPage(selectedValue) {},
+  },
 };
 </script>
 
@@ -77,13 +109,7 @@ export default {
   margin-left: 20px;
   border-radius: 6px;
   border-style: none;
-  /* border: 2px solid #f0b429;
-  color: #f0b429; */
   font-weight: bold;
-}
-
-.nav-btn-sign-up:hover {
-  /* border-bottom: 1px solid black; */
 }
 
 .for-flex {
@@ -106,7 +132,6 @@ export default {
 
 .p-information {
   font-size: 20px;
-  /* color: #829ab1; */
   text-align: center;
 }
 
@@ -127,8 +152,8 @@ export default {
 .btn-log {
   width: 40%;
   border-style: none;
-  border: 2px solid #007BFF;
-  background-color: #007BFF;
+  border: 2px solid #007bff;
+  background-color: #007bff;
   color: white;
   font-weight: bold;
   font-size: 18px;
@@ -137,20 +162,19 @@ export default {
 }
 
 .inline-span {
-    display: inline-block;
+  display: inline-block;
 }
 
 .radio-span {
-    margin-right: 20px;
+  margin-right: 20px;
 }
 
 .inp-radio {
-    position: relative;
-    bottom: 7px;
+  position: relative;
+  bottom: 7px;
 }
 
 .b-text {
-
-    font-size: 15px;
+  font-size: 15px;
 }
 </style>
