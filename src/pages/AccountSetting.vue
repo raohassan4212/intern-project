@@ -13,13 +13,16 @@
     </div>
     <div class="nav-type-div">
       <div class="div-width div-profile">Profile</div>
-      <div class="div-width div-security">Security</div>
+
+      <div class="div-width div-security">
+        <router-link to="account-setting-step-two"> <div>Security</div> </router-link>
+      </div>
     </div>
     <p class="account-setting-h">Profile details</p>
     <p>Your profile is visible to your connected users.</p>
 
     <div class="account-setting-div-flex">
-      <div>
+      <div class="debug-margin">
         <div class="two-label">
           <label class="lable-inp gap">
             First Name*
@@ -71,7 +74,9 @@
               <label class="lable-inp">
                 Time Zone*
                 <select name="cars" id="cars" class="box-aligment">
-                  <option value="volvo">+00:00 East Greenland Time - ...</option>
+                  <option value="volvo">
+                    +00:00 East Greenland Time - ...
+                  </option>
                   <option value="saab">Single family</option>
                   <option value="opel">Multi Family</option>
                 </select>
@@ -131,13 +136,15 @@
           </b-row>
         </b-container>
         <div class="information-div information-div-mr">
-            <p class="email-p">Delete account</p>
-            <br />
-            <p>Please note that all of the information will be permanently deleted.</p>
-            <button class="delete-btn-setting-account">delete account</button>
-          </div>
+          <p class="email-p">Delete account</p>
+          <br />
+          <p>
+            Please note that all of the information will be permanently deleted.
+          </p>
+          <button class="delete-btn-setting-account">delete account</button>
+        </div>
       </div>
-      <div>
+      <div class="profile-display-none">
         <div class="circle-profile">IA</div>
         <div class="btn-div-circle-profile">
           <button class="btn-circle-profile">upload an image</button>
@@ -213,6 +220,7 @@ export default {
 .account-setting-div-flex {
   display: flex;
   justify-content: space-evenly;
+  flex-wrap: wrap;
 }
 
 .circle-profile {
@@ -287,9 +295,29 @@ export default {
 
 .delete-btn-setting-account {
   border-style: none;
-  background-color: #D64545;
+  background-color: #d64545;
   color: white;
   padding: 8px 25px;
   border-radius: 5px;
 }
+
+@media only screen and (max-width: 615px) {
+  .profile-display-none {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 720px) {
+  .debug-margin {
+    margin: 0 40px;
+  }
+}
+
+@media only screen and (max-width: 405px) {
+  .debug-margin {
+    margin-left: 30px;
+  }
+}
+
+
 </style>

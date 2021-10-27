@@ -15,8 +15,12 @@
       <router-link to="account-setting">
         <div class="setting-div">Account Setting</div>
       </router-link>
-      <div class="setting-div">Renter Profile</div>
-      <div class="setting-div">Online Payment</div>
+      <router-link to="renter-setting">
+        <div class="setting-div">Renter Profile</div>
+      </router-link>
+      <router-link to="settings/payments">
+        <div class="setting-div">Online Payment</div>
+      </router-link>
       <div class="setting-div">File Manager</div>
       <div class="setting-div log-color">Log Out</div>
     </div>

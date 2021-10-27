@@ -14,7 +14,6 @@
         <p class="p-inline p-t"><span>0</span> Total</p>
       </div>
       <div>
-        <!-- <button class="btn-filter">Filter <span class="span-0">0</span></button> -->
         <div>
           <b-button v-b-toggle.sidebar-right
             >Filter <span class="span-0">0</span></b-button

@@ -9,10 +9,12 @@
       </router-link>
     </div>
     <div>
-      <p class="p-inline p-mr">Account Settings</p>
+      <p class="p-inline p-mr">Renter Profile</p>
     </div>
     <div class="nav-type-div">
-      <div class="div-width div-profile">Profile</div>
+      <div class="div-width div-profile">
+        <router-link to="account-setting"> <div>Profile</div></router-link>
+      </div>
       <div class="div-width div-security">Security</div>
     </div>
     <div class="div-auth">
@@ -30,7 +32,7 @@
       </p>
     </div>
     <table class="table-width">
-      <tr >
+      <tr>
         <th>LOCATION</th>
         <th>DEVICE</th>
         <th>IP ADDRESS</th>
@@ -131,19 +133,19 @@ export default {
 }
 
 .table-width {
-    width: 100%;
+  width: 100%;
 }
 
 .tr {
-    border-top: 1px solid rgb(214, 213, 213);
-    border-bottom: 1px solid rgb(214, 213, 213); 
+  border-top: 1px solid rgb(214, 213, 213);
+  border-bottom: 1px solid rgb(214, 213, 213);
 }
 
 .tds {
-    padding: 20px 0;
+  padding: 20px 0;
 }
 
 .location-data-p {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 </style>

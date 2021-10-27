@@ -41,6 +41,15 @@ import Setting from "@/pages/Setting.vue";
 import AccountSetting from "@/pages/AccountSetting.vue";
 import AccountSettingStepTwo from "@/pages/AccountSettingStepTwo.vue";
 import RenterSetting from "@/pages/RenterSetting.vue";
+import SearchPreference from "@/pages/SearchPreference.vue";
+import OnlinePayment from "@/pages/OnlinePayment.vue";
+import OnlinePaymentStripe from "@/pages/OnlinePaymentStripe.vue";
+import FileManager from "@/pages/FileManager.vue";
+import Chats from "@/pages/Chats.vue";
+import Feeds from "@/pages/Feeds.vue";
+import HelpChooseNewTicket from "@/pages/HelpChooseNewTicket.vue";
+import LandlordDashboard from "@/pages/landlord/LandlordDashboard.vue";
+
 
 
 
@@ -163,6 +172,47 @@ const routes = [
         name: "Renter Setting",
         component: RenterSetting
       },
+      {
+        path: "search-preference",
+        name: "Search Preference",
+        component: SearchPreference
+      },
+      {
+        path: "settings/payments",
+        name: "Online Payment",
+        component: OnlinePayment
+      },
+      {
+        path: "settings/payments/stripe",
+        name: "Online Payment Stripe",
+        component: OnlinePaymentStripe
+      },
+      {
+        path: "settings/file_manager",
+        name: "File Manager",
+        component: FileManager
+      },
+      {
+        path: "messages",
+        name: "Chats",
+        component: Chats
+      },
+      {
+        path: "feed",
+        name: "Feeds",
+        component: Feeds
+      },
+      {
+        path: "help/choose/new/ticket",
+        name: "Help Choose New Ticket",
+        component: HelpChooseNewTicket
+      },
+      {
+        path: "landlord-dashboard",
+        name: "Landlord Dashboard",
+        component: LandlordDashboard
+      },
+      
     ]
   },
   { path: "*", component: Login },
